@@ -1,0 +1,11 @@
+
+<% @bundles.each do |bundle| %>
+  <h3><%= link_to bundle.name, bundle %> (<%= bundle.links.count %>)</h3>
+  <small>
+  	Tags: <%= raw bundle.tag_list.map { |t| link_to t, '#' }.join(', ') %>
+  </small>
+<% end %>
+
+<hr>
+
+<p><%= link_to 'New Bundle', new_bundle_path %></p>

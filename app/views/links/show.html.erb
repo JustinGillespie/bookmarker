@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @link.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @link.url %>
+</p>
+
+<p>
+  <strong>Bundle:</strong>
+  <%= @link.bundle_id %>
+</p>
+
+<%= link_to 'Edit', edit_bundle_link_path(@bundle, @link) %> |
+<%= link_to 'Back', bundle_links_path %>

@@ -1,0 +1,23 @@
+
+<h2><%= @bundle.name %></h2>
+
+<ul>
+	<% @bundle.links.each do |link| %>
+		<li>
+			<%= link.name %><br>
+			<%= link.url %>
+		</li>
+	<% end %>
+</ul>
+
+<fieldset>
+	<%= render 'links/form'  %>
+	<small><%= link_to 'Create a new bookmark', new_bundle_link_path(@bundle) %></small>
+</fieldset>
+
+<hr>
+
+<p>
+	<%= link_to 'Edit', edit_bundle_path(@bundle) %> |
+	<%= link_to 'Back', bundles_path %>
+</p>

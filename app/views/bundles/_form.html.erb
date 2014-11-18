@@ -1,0 +1,27 @@
+<%= form_for(@bundle) do |f| %>
+  <% if @bundle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bundle.errors.count, "error") %> prohibited this bundle from being saved:</h2>
+
+      <ul>
+      <% @bundle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list, "Tags (seperated by commas)" %><br>
+    <%= f.text_field :tag_list %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

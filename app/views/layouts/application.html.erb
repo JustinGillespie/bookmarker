@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Bookmarker</title>
+ 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="container">
+
+		<header>
+			<small>
+				<% if current_user %>
+					Logged in as <%= current_user.email %>.
+					<%= link_to "Log Out", logout_path %>
+				<% else %>
+					<%= link_to "Sign Up", signup_path %> or
+					<%= link_to "Log In", login_path %>
+				<% end %>
+			</small>
+
+			<p><img src="<%= asset_path "push.png" %>" class="logo"></p>
+		</header>
+
+		<hr>
+		
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, id: "flash_#{name}" %>
+		<% end %>
+
+		<%= yield %>
+	</div>
+
+</body>
+</html>
