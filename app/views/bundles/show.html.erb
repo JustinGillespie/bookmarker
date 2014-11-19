@@ -1,23 +1,36 @@
 
-<h2><%= @bundle.name %></h2>
+<% content_for :header do %>
+	<header>
+		<h2>
+			<%= icon 'bookmark-o' %> 
+			<%= link_to 'Bundles', bundles_path %>
+			<%= icon('angle-right') + @bundle.name %>
+		</h2>
+	</header>
+<% end %>
 
-<ul>
+<div class="cf">
 	<% @bundle.links.each do |link| %>
-		<li>
-			<%= link_to link.name, edit_bundle_link_path(@bundle, link) %><br>
-			<%= link.url %>
-		</li>
+		
+		<div class="module">
+			
+			<div class="icon-container">
+				<%= icon('star-o') %>
+			</div>
+
+  		<h2><%= link_to link.name, edit_bundle_link_path(@bundle, link) %><br></h2>
+
+  		<span class="details">
+  			<em><%= link.url %></em>
+  		</span>
+  	
+  	</div> <!--/.module -->
 	<% end %>
-</ul>
+</div> <!--./cf -->
 
-<fieldset>
-	<%= render 'links/form'  %>
-	<small><%= link_to 'Create a new bookmark', new_bundle_link_path(@bundle) %></small>
-</fieldset>
-
-<hr>
+<br>
 
 <p>
-	<%= link_to 'Edit', edit_bundle_path(@bundle) %> |
-	<%= link_to 'Back', bundles_path %>
+	<%= link_to 'Create a bookmark', new_bundle_link_path(@bundle), class: "button" %>
+	<%= link_to icon('angle-left') + 'Back', bundles_path, class: "button" %>
 </p>

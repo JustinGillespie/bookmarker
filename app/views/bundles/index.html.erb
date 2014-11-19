@@ -1,11 +1,31 @@
 
-<% @bundles.each do |bundle| %>
-  <h3><%= link_to bundle.name, bundle %> (<%= bundle.links.count %>)</h3>
-  <small>
-  	Tags: <%= raw bundle.tag_list.map { |t| link_to t, '#' }.join(', ') %>
-  </small>
+<% content_for :header do %>
+	<header>
+		<h2><%= icon 'bookmark-o' %> Bundles</h2>
+	</header>
 <% end %>
 
-<hr>
+<div class="cf">
+	<% @bundles.each do |bundle| %>
+		
+		<div class="module">
+			
+			<div class="icon-container">
+				<span class="count"><%= bundle.links.count %></span>
+				<%= icon('folder-o') %>
+			</div>
 
-<p><%= link_to 'New Bundle', new_bundle_path %></p>
+  		<h2><%= link_to bundle.name, bundle %></h2>
+
+  		<span class="details">
+  			<%= link_to icon('cog'), edit_bundle_path(bundle) %>
+  			<%= icon('tag') %> 
+  			<em><%= bundle.tag_list.join(', ') %></em>
+  		</span>
+  	
+  	</div> <!--/.module -->
+	<% end %>
+</div> <!--./cf -->
+
+<br>
+<p><%= link_to icon('bookmark-o') + 'New Bundle', new_bundle_path, class: 'button' %></p>

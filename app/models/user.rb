@@ -12,4 +12,12 @@ class User < ActiveRecord::Base
   	self.first_name = split.first
   	self.last_name = split.last
 	end
+
+	def role_name
+		case self.role
+			when 0 then "Admin"
+			else "User"
+		end
+	end
+
 end

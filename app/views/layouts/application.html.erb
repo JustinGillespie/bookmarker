@@ -4,39 +4,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>Bookmarker</title>
+  <link href="//cloud.typography.com/7685272/644722/css/fonts.css" rel="stylesheet" type="text/css" />
  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-	<div class="container">
+	<div class="sidebar">
+	
+		<p><a href="<%= root_url %>"><img src="<%= asset_path "push.png" %>" class="logo"></a></p>
 
-		<header>
-			<small>
-				<% if current_user %>
-					Logged in as <%= current_user.email %>.
-					<%= link_to "Bundles", bundles_path %>
-					<%= link_to "Users", users_path %>
-					<%= link_to "Log Out", logout_path %>
-				<% else %>
-					<%= link_to "Log In", login_path %>
-				<% end %>
-			</small>
-
-			<p>
-				<a href="<%= root_url %>"><img src="<%= asset_path "push.png" %>" class="logo"></a>
-			</p>
-		</header>
-
-		<hr>
-		
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, id: "flash_#{name}" %>
+		<% if current_user %>
+			<p class="info">Logged in as the<br>remarkable <%= current_user.full_name %>!</p>
+			
+			<nav>
+				<%= link_to icon('bookmark-o') + "Bundles", bundles_path %>
+				<%= link_to icon('users') + "Users", users_path %>
+				<%= link_to icon('lock') + "Log Out", logout_path %>
+			</nav>
 		<% end %>
 
+	</div> <!--/.sidebar -->
+
+	<div class="main">
+		
+		<%= yield :header %>
+		
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, id: "flash_#{name}" %>
+		<% end %>
+		 
 		<%= yield %>
-	</div>
+
+	</div> <!--/.main -->
 
 </body>
 </html>

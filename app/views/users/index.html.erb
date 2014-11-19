@@ -1,7 +1,21 @@
+<% content_for :header do %>
+	<header>
+		<h2><%= icon 'user' %> Users</h2>
+	</header>
+<% end %>
+
+
 <% @users.each do |user| %>
-	<h4><%= user.email %></h4>
+	<p>
+		<strong><%= user.full_name %></strong><br>
+		<small>
+			<%= user.email %><br>
+			<%= user.role_name %>
+		</small>
+	</p>
+
 <% end %>
 
 <hr>
 
-<p><%= link_to 'Add new user', new_user_path %></p>
+<p><%= link_to icon('plus-circle') + 'Add new user', new_user_path, class: "button" %></p>

@@ -1,17 +1,15 @@
 module Api
 	class BaseController < ApplicationController
 
-		before_filter :authorize
+		skip_before_action :verify_authenticity_token
+		before_action :authorize
 
 		private
 
 		def authorize
-			# implement code to lockdown api requests
-			# example:
-			# 
-	  	# if current_user.nil? or current_user.account.slug != request.subdomain
-	  	#		render nothing: true, status: :forbidden 
-	  	# end
+			authenticate_or_request_with_http_token do |token, options|
+				ApiKey.exists?(access_token: token)
+  		end
 		end
 
 	end

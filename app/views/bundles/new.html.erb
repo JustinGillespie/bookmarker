@@ -1,5 +1,12 @@
-<h1>New bundle</h1>
+
+<% content_for :header do %>
+	<header>
+		<h2><%= icon 'bookmark-o' %> New Bundle</h2>
+	</header>
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', bundles_path %>
+<hr>
+
+<%= link_to icon('angle-left') + 'Back to All Bundles', bundles_path, class: "button" %>

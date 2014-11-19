@@ -1,7 +1,16 @@
-<h1>Editing bundle</h1>
+<% content_for :header do %>
+	<header>
+		<h2>
+			<%= icon 'bookmark-o' %> 
+			<%= link_to 'Bundles', bundles_path %>
+			<%= icon('angle-right') + @bundle.name %>
+		</h2>
+	</header>
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @bundle %> |
+<hr>
+
 <%= link_to 'Destroy', @bundle, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', bundles_path %>

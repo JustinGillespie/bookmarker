@@ -1,6 +1,49 @@
+@import 'vars';
+@import 'mixins';
 
-.container { max-width: 900px; margin: 0 auto; }
-.logo { max-width: 68px; }
+*, *:before, *:after {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: inherit;
+}
+
+html, body {
+    @include gotham-book;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    letter-spacing: $base-letter-spacing;
+    box-sizing: border-box;
+}
+
+// Typeography
+
+h1, h2, h3 {
+	font-weight: normal;
+	text-transform: uppercase;
+	margin: 0 0 30px 0;
+    padding-bottom: 5px
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+}
+
+
+h2 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: .07em;
+}
+
+h3 {
+    font-size: 18px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+
 
 hr {
     display: block;
@@ -10,3 +53,183 @@ hr {
     margin: 2em 0;
     padding: 0;
 }
+
+a {
+    color: #486388;
+    transition: background-color 0.3s;
+}
+
+i { margin-right: 8px; }
+
+
+// Structure
+
+.sidebar {
+    background: $sidebar-color;
+    font-size: 15px;
+    line-height: 1.7em;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px 25px;
+    width: $sidebar-width;
+}
+
+.sidebar .info {
+    color: #888;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    line-height: 1.4em;
+    letter-spacing: 0.0em;
+}
+
+.sidebar nav { margin-top: 30px; }
+
+.sidebar nav a {
+    @include clearfix;
+    @include transition(all 0.3s);
+    border-bottom: 1px dotted #ddd;
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 0;
+    &:hover { color: #777; }
+    i { float: left; display: block; width: 20px; margin-top: 4px; text-align: center; }
+ }
+
+
+
+
+.main {
+    margin-left: $sidebar-width;
+    padding-top: 25px;
+    padding-left: 30px;
+}
+
+.main header { 
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 15px;
+    margin-bottom: 45px;
+    h1,h2,h3 { margin: 0; }
+}
+
+.logo { max-width: 68px; }
+
+
+
+// UI
+
+.button {
+    border: 3px solid black;
+    background: transparent;
+    color: black;
+    display: inline-block;
+    letter-spacing: 0.06em;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 5px 20px 4px 20px;
+
+    &:hover { background-color: #f4f4f4 }
+}
+
+
+
+.module {
+    @include rounded(5px);
+    border-bottom: 1px solid #efefef;
+    padding: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    
+    h1,h2,h3 { margin: 0; }
+    a { @include transition(color 0.6s); text-decoration: none; }
+    a:hover { color: black; }
+}
+
+.module .icon-container {
+    color: #555; 
+    float: left;
+    font-size: 44px;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.module .icon-container .count {
+    @include rounded($count-size);
+    background: #55b7f5;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5em;
+    padding-left: 2px;
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    height: $count-size;
+    width: $count-size;
+}
+
+.module .details { display: block; font-size: 13px; margin-top: -5px; letter-spacing: 0em; }
+.module .details em { color: #777; font-style: normal; }
+.module .details a { color: black; }
+
+
+// Forms
+
+
+.field { margin-bottom: 25px; }
+.actions { margin-top: 55px; }
+
+label {
+    color: #aaa;
+    font-weight: 500;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: -5px;
+}
+
+input[type='text'],
+input[type='password'] {
+    @include transition(all 0.2s);
+    border: 0;
+    border-bottom: 3px solid black;
+    display: block;
+    margin: 0;
+    padding: 8px 8px 4px 0px;
+    outline: 0;
+    width: 450px;
+
+    &:focus { background: $sidebar-color; padding-left: 8px; }
+}
+
+
+
+input[type='submit'] { outline: 0; padding: 10px 20px 9px 20px; }
+
+
+
+
+// Helpers
+
+
+.cf { @include clearfix; }
+
+
+
+
+
+
+
+
+
+

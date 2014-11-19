@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       
       get 'tag/:tag', to: 'bundles#index', as: :tag
+      get 'tags', to: 'tags#index'
       resources :bundles
     end
   end
