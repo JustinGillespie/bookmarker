@@ -3,8 +3,12 @@ module Api
     class BundlesController < Api::BaseController
 			  		
   		def index
-        @bundles = Bundle.all
+        @bundles = params[:tag] ? Bundle.tagged_with(params[:tag]) : Bundle.all
   		end
+
+      def show
+        @bundle = Bundle.find(params[:id])
+      end
 
       private
 

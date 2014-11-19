@@ -4,7 +4,7 @@
 <ul>
 	<% @bundle.links.each do |link| %>
 		<li>
-			<%= link.name %><br>
+			<%= link_to link.name, edit_bundle_link_path(@bundle, link) %><br>
 			<%= link.url %>
 		</li>
 	<% end %>

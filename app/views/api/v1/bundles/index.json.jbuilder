@@ -1,4 +1,8 @@
-json.array!(@bundles) do |bundle|
+json.bundles @bundles.each do |bundle|
   json.extract! bundle, :id, :name
-  #json.url api_project_url(project)
+	json.tags bundle.tag_list
+  json.links bundle.links do |link|
+  	json.name link.name
+  	json.url link.url
+ 	end
 end

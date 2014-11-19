@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', [@bundle, @link] %> |
+<%= link_to 'Destroy', [@bundle, @link], method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', bundle_links_path %>
