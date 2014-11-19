@@ -21,7 +21,7 @@ class LinksController < ApplicationController
   def create
     @link = @bundle.links.build(link_params)
     if @link.save
-      redirect_to bundle_link_path(@bundle, @link), notice: 'Link was successfully created.'
+      redirect_to bundle_path(@bundle), notice: 'Link was successfully created.'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to bundle_link_path(@bundle, @link), notice: 'Link was successfully updated.'
+      redirect_to bundle_path(@bundle), notice: 'Link was successfully updated.'
     else
       render :edit
     end

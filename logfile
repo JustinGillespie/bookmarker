@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2014-09-18 14:16:43 EDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "bookmarker_dev" does not exist
+ERROR:  database "milemarker_test" already exists
+STATEMENT:  CREATE DATABASE "milemarker_test" ENCODING = 'unicode'

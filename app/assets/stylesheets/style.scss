@@ -38,12 +38,7 @@ h2 {
 
 h3 {
     font-size: 18px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-    display: inline-block;
 }
-
-
 
 hr {
     display: block;
@@ -61,6 +56,8 @@ a {
 
 i { margin-right: 8px; }
 
+
+p.small { color: #888; font-size: 13px; letter-spacing: 0em; }
 
 // Structure
 
@@ -101,13 +98,9 @@ i { margin-right: 8px; }
     i { float: left; display: block; width: 20px; margin-top: 4px; text-align: center; }
  }
 
-
-
-
 .main {
     margin-left: $sidebar-width;
-    padding-top: 25px;
-    padding-left: 30px;
+    padding: 25px 30px;
 }
 
 .main header { 
@@ -212,18 +205,61 @@ input[type='password'] {
     &:focus { background: $sidebar-color; padding-left: 8px; }
 }
 
-
-
 input[type='submit'] { outline: 0; padding: 10px 20px 9px 20px; }
 
 
 
+.inline-form {
+    @include clearfix;
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
+.inline-form .field {
+    float: left;
+    margin: 0 10px 0 0;
+    position: relative;
+}
+
+.inline-form .actions { float: left; margin: 27px 0 0 10px; }
+.inline-form .actions .button { padding: 7px 14px; }
+.inline-form label {
+    margin: 0 0 -2px 0;
+}
+
+.inline-form input[type='text'],
+.inline-form input[type='password'] {
+    border: 1px solid #ccc;
+    padding-left: 4px;
+    width: 240px;
+}
 
 // Helpers
 
 
 .cf { @include clearfix; }
 
+
+// Notices
+
+#flash_notice {
+    @include transition(all 0.5s ease-in 0.2s);
+    @include rounded(12px);
+    background: black;
+    color: white;
+    font-size: 12px;
+    line-height: 1.4em;
+    text-align: center;
+    position: fixed;
+    padding: 11px;
+    letter-spacing: -0.015em;
+    bottom: -10px;
+    right: 15px;
+    opacity: 0;
+    width: 160px;
+
+    &.open { opacity: 0.8; bottom: 15px; }
+}
 
 
 
