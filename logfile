@@ -4,3 +4,16 @@ LOG:  autovacuum launcher started
 FATAL:  database "bookmarker_dev" does not exist
 ERROR:  database "milemarker_test" already exists
 STATEMENT:  CREATE DATABASE "milemarker_test" ENCODING = 'unicode'
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2014-11-20 09:27:34 EST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 46041) running in data directory "/usr/local/var/postgres"?
+LOG:  shutting down
+LOG:  database system is shut down
