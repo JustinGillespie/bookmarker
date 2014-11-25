@@ -32,7 +32,7 @@ Workflow Notes
 To generate a new API Key from terminal:
 
 	heroku run rails console
-	ApiKey.create! to generate new key
+	ApiKey.create!
 
 Example Authenticated CURL Request:
 
@@ -40,10 +40,15 @@ Example Authenticated CURL Request:
 
 Links
 -----
-* <https://vast-chamber-2812.herokuapp.com/>
-* <https://vast-chamber-2812.herokuapp.com/api/bundles>
-* <https://vast-chamber-2812.herokuapp.com/api/tags>
-* <https://vast-chamber-2812.herokuapp.com/api/tag/foo>
+* <https://vast-chamber-2812.herokuapp.com/> Homepage/Login
+
+
+API Endpoints
+-----
+
+* <https://vast-chamber-2812.herokuapp.com/api/bundles> Returns all bundles, along with the links and tags associated with each.
+* <https://vast-chamber-2812.herokuapp.com/api/tags> Returns all tags
+* <https://vast-chamber-2812.herokuapp.com/api/tag/foo> Returns all bundles matching tag 'foo'
 
 
 
